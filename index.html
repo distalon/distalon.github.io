@@ -1,37 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Your Name | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Level Designer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header>
+  
+  <header class="hero">
     <h1>Your Name</h1>
-    <p>Web Developer | Designer | Student</p>
+    <p class="subtitle">Level Designer</p>
+    <p class="contact">
+      ✉ <a href="mailto:your@email.com">Email</a> |
+      📄 <a href="YourResume.pdf" target="_blank">Resume (PDF)</a> |
+      🐙 <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    </p>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I’m a passionate developer learning and building cool projects.
-    </p>
-  </section>
+  <nav class="menu">
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li>Project One – description</li>
-      <li>Project Two – description</li>
-    </ul>
-  </section>
+  <main>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>GitHub: github.com/yourusername</p>
-  </section>
+    <section id="projects">
+      <h2>Selected Work</h2>
+
+      <article class="project">
+        <h3>Level Title or Game Name</h3>
+        <img src="images/project1.png" alt="Project screenshot">
+        <p>
+          <strong>Role:</strong> Lead Level Designer •
+          <strong>Tools:</strong> Unreal Engine 5, World Machine, etc.
+        </p>
+        <p>
+          Short description of design intent, challenge, and outcome. Focus on your impact.
+        </p>
+        <p>
+          🎥 <a href="https://youtu.be/YourVideoLink" target="_blank">Gameplay/Walkthrough</a> |
+          💾 <a href="https://itch.io/yourgame" target="_blank">Playable Build</a>
+        </p>
+      </article>
+
+      <!-- Copy project blocks for more -->
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m a level designer specializing in gameplay flow, pacing, and environmental storytelling. I’ve shipped titles and built levels from concept to final polish.
+      </p>
+      <!-- Add skills list -->
+      <ul class="skills">
+        <li>Unreal Engine / Unity</li>
+        <li>World Building & Pacing</li>
+        <li>Navigation & Visibility Design</li>
+        <li>Playtesting & Iteration</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Reach me at ✉ <a href="mailto:your@email.com">your@email.com</a></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© Your Name — Level Designer</p>
+  </footer>
 
 </body>
 </html>
