@@ -36,14 +36,17 @@ h2 { border-bottom: 2px solid #eee; padding-bottom: .5rem; }
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+.half-size {
+  width: 50%;
+  display: block;
+  margin: 1rem auto;
+}
+
 .skills { list-style: none; padding: 0; }
 .skills li { display: inline-block; background: #eee; margin: .5rem; padding: .5rem 1rem; border-radius: 20px; }
 
 footer { text-align: center; font-size: .85rem; padding: 1rem; color: #666; }
 
-.half-size {
-  width: 48%;
-  display: inline-block;
-  margin: 1rem 1%;
-}
+
+
 
