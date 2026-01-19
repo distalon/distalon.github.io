@@ -11,21 +11,57 @@
 </div>
 
 <script>
-  const images = document.querySelectorAll('.image-grid img');
+  const images = Array.from(document.querySelectorAll('.image-grid img'));
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
 
-  images.forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightbox.classList.add('active');
-    });
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => openLightbox(index));
   });
 
-  lightbox.addEventListener('click', () => {
-    lightbox.classList.remove('active');
+  lightbox.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+
+    switch (e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowRight':
+        showNext();
+        break;
+      case 'ArrowLeft':
+        showPrev();
+        break;
+    }
   });
 </script>
+
 
 <body>
 
@@ -86,25 +122,25 @@
         <h3>Warframe</h3>
         <p class="project-meta">Digital Extremes — Principal Level Designer</p>
 
-      <!--<div class="image-grid">-->
-        <img class="half-size" src="images/warframe/Warframe_01.png" alt="Warframe level design example">
-        <img class="half-size" src="images/warframe/Warframe_02.png" alt="Warframe environment example">
-        <img class="half-size" src="images/warframe/Warframe_03.png" alt="Warframe level design example">
-        <img class="half-size" src="images/warframe/Warframe_04.png" alt="Warframe environment example">
-        <img class="half-size" src="images/warframe/Warframe_05.png" alt="Warframe level design example">
-        <img class="half-size" src="images/warframe/Warframe_06.jpg" alt="Warframe environment example">
-        <img class="half-size" src="images/warframe/Warframe_07.jpg" alt="Warframe level design example">
-        <img class="half-size" src="images/warframe/Warframe_08.jpg" alt="Warframe environment example">
-        <img class="half-size" src="images/warframe/Warframe_09.png" alt="Warframe level design example">
-        <img class="half-size" src="images/warframe/Warframe_10.jpg" alt="Warframe environment example">
-        <img class="half-size" src="images/warframe/Warframe_11.png" alt="Warframe level design example">
-        <img class="half-size" src="images/warframe/Warframe_12.jpg" alt="Warframe environment example">
-        <img class="half-size" src="images/warframe/Warframe_13.png" alt="Warframe level design example">
-        <img class="half-size" src="images/warframe/Warframe_14.jpg" alt="Warframe environment example">
-        <img class="half-size" src="images/warframe/Warframe_15.jpg" alt="Warframe level design example">
-        <img class="half-size" src="images/warframe/Warframe_17.jpg" alt="Warframe environment example">
-        <img class="half-size" src="images/warframe/Warframe_18.jpg" alt="Warframe environment example">
-      <!--</div>-->
+      <div id="lightbox" aria-hidden="true">
+        <img id="lightbox-img" src="images/warframe/Warframe_01.png" alt="Warframe level design example">
+        <img id="lightbox-img" src="images/warframe/Warframe_02.png" alt="Warframe environment example">
+        <img id="lightbox-img" src="images/warframe/Warframe_03.png" alt="Warframe level design example">
+        <img id="lightbox-img" src="images/warframe/Warframe_04.png" alt="Warframe environment example">
+        <img id="lightbox-img" src="images/warframe/Warframe_05.png" alt="Warframe level design example">
+        <img id="lightbox-img" src="images/warframe/Warframe_06.jpg" alt="Warframe environment example">
+        <img id="lightbox-img" src="images/warframe/Warframe_07.jpg" alt="Warframe level design example">
+        <img id="lightbox-img" src="images/warframe/Warframe_08.jpg" alt="Warframe environment example">
+        <img id="lightbox-img" src="images/warframe/Warframe_09.png" alt="Warframe level design example">
+        <img id="lightbox-img" src="images/warframe/Warframe_10.jpg" alt="Warframe environment example">
+        <img id="lightbox-img" src="images/warframe/Warframe_11.png" alt="Warframe level design example">
+        <img id="lightbox-img" src="images/warframe/Warframe_12.jpg" alt="Warframe environment example">
+        <img id="lightbox-img" src="images/warframe/Warframe_13.png" alt="Warframe level design example">
+        <img id="lightbox-img" src="images/warframe/Warframe_14.jpg" alt="Warframe environment example">
+        <img id="lightbox-img" src="images/warframe/Warframe_15.jpg" alt="Warframe level design example">
+        <img id="lightbox-img" src="images/warframe/Warframe_17.jpg" alt="Warframe environment example">
+        <img id="lightbox-img" src="images/warframe/Warframe_18.jpg" alt="Warframe environment example">
+      </div>
 
         <p>
           Designed and shipped a large volume of levels, worlds, and quests for
@@ -209,6 +245,7 @@
 
 </body>
 </html>
+
 
 
 
