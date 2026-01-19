@@ -207,10 +207,17 @@
   
     let currentIndex = 0;
     let lightboxOpen = false;
+    let scrollY = 0;
   
     function openLightbox(index) {
       currentIndex = index;
       lightboxImg.src = images[currentIndex].src;
+  
+      scrollY = window.scrollY;
+  
+      document.body.classList.add('no-scroll');
+      document.body.style.top = `-${scrollY}px`;
+  
       lightbox.classList.add('active');
       lightboxOpen = true;
   
@@ -221,9 +228,15 @@
   
     function closeLightbox() {
       lightboxImg.classList.remove('visible');
+  
       setTimeout(() => {
         lightbox.classList.remove('active');
         lightboxOpen = false;
+  
+        document.body.classList.remove('no-scroll');
+        document.body.style.top = '';
+  
+        window.scrollTo(0, scrollY);
       }, 200);
     }
   
@@ -271,6 +284,7 @@
   
 </body>
 </html>
+
 
 
 
