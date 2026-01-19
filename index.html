@@ -17,17 +17,20 @@
   const lightboxImg = document.getElementById('lightbox-img');
 
   let currentIndex = 0;
+  let lightboxOpen = false;
 
   function openLightbox(index) {
     currentIndex = index;
     lightboxImg.src = images[currentIndex].src;
     lightbox.classList.add('active');
     lightbox.setAttribute('aria-hidden', 'false');
+    lightboxOpen = true;
   }
 
   function closeLightbox() {
     lightbox.classList.remove('active');
     lightbox.setAttribute('aria-hidden', 'true');
+    lightboxOpen = false;
   }
 
   function showNext() {
@@ -47,7 +50,11 @@
   lightbox.addEventListener('click', closeLightbox);
 
   document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
+    if (!lightboxOpen) return;
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'Escape') {
+      e.preventDefault(); // 🚨 stops page scrolling ONLY when lightbox is open
+    }
 
     switch (e.key) {
       case 'Escape':
@@ -247,6 +254,7 @@
 
 </body>
 </html>
+
 
 
 
