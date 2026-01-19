@@ -150,6 +150,10 @@ h2 { border-bottom: 2px solid #eee; padding-bottom: .5rem; }
   }
 } */
 
+body.no-scroll {
+  position: fixed;
+  width: 100%;
+}
 
 
 
@@ -157,6 +161,7 @@ h2 { border-bottom: 2px solid #eee; padding-bottom: .5rem; }
 .skills li { display: inline-block; background: #eee; margin: .5rem; padding: .5rem 1rem; border-radius: 20px; }
 
 footer { text-align: center; font-size: .85rem; padding: 1rem; color: #666; }
+
 
 
 
