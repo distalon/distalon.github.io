@@ -96,30 +96,13 @@ h2 { border-bottom: 2px solid #eee; padding-bottom: .5rem; }
   cursor: zoom-out;
 }
 
-/* Lightbox image transition setup */
-#lightbox-content {
-  position: relative;
-}
-
-#lightbox-img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 8px;
-  opacity: 0;
-  transform: translateX(0);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-/* When image is visible */
-#lightbox-img.visible {
-  opacity: 1;
-}
 
 
 .skills { list-style: none; padding: 0; }
 .skills li { display: inline-block; background: #eee; margin: .5rem; padding: .5rem 1rem; border-radius: 20px; }
 
 footer { text-align: center; font-size: .85rem; padding: 1rem; color: #666; }
+
 
 
 
