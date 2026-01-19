@@ -32,7 +32,6 @@
     currentIndex = index;
     lightboxImg.src = images[currentIndex].src;
     lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
     lightboxOpen = true;
 
     requestAnimationFrame(() => {
@@ -44,29 +43,22 @@
     lightboxImg.classList.remove('visible');
     setTimeout(() => {
       lightbox.classList.remove('active');
-      lightbox.setAttribute('aria-hidden', 'true');
       lightboxOpen = false;
     }, 200);
   }
 
-  function transitionImage(direction) {
-    lightboxImg.classList.remove('visible');
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
 
-    setTimeout(() => {
-      currentIndex =
-        direction === 'next'
-          ? (currentIndex + 1) % images.length
-          : (currentIndex - 1 + images.length) % images.length;
-
-      lightboxImg.src = images[currentIndex].src;
-
-      requestAnimationFrame(() => {
-        lightboxImg.classList.add('visible');
-      });
-    }, 200);
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
   }
 
   images.forEach((img, index) => {
+    img.style.cursor = 'pointer';
     img.addEventListener('click', () => openLightbox(index));
   });
 
@@ -76,32 +68,24 @@
 
   nextBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    transitionImage('next');
+    showNext();
   });
 
   prevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    transitionImage('prev');
+    showPrev();
   });
 
   document.addEventListener('keydown', (e) => {
     if (!lightboxOpen) return;
 
-    if (['ArrowRight', 'ArrowLeft', 'Escape'].includes(e.key)) {
+    if (['ArrowLeft', 'ArrowRight', 'Escape'].includes(e.key)) {
       e.preventDefault();
     }
 
-    switch (e.key) {
-      case 'Escape':
-        closeLightbox();
-        break;
-      case 'ArrowRight':
-        transitionImage('next');
-        break;
-      case 'ArrowLeft':
-        transitionImage('prev');
-        break;
-    }
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
   });
 </script>
 <body>
@@ -286,6 +270,7 @@
 
 </body>
 </html>
+
 
 
 
