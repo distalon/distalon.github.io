@@ -18,76 +18,7 @@
 
 
 
-<script>
-  const images = Array.from(document.querySelectorAll('.image-grid img'));
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const nextBtn = document.querySelector('.lightbox-arrow.right');
-  const prevBtn = document.querySelector('.lightbox-arrow.left');
 
-  let currentIndex = 0;
-  let lightboxOpen = false;
-
-  function openLightbox(index) {
-    currentIndex = index;
-    lightboxImg.src = images[currentIndex].src;
-    lightbox.classList.add('active');
-    lightboxOpen = true;
-
-    requestAnimationFrame(() => {
-      lightboxImg.classList.add('visible');
-    });
-  }
-
-  function closeLightbox() {
-    lightboxImg.classList.remove('visible');
-    setTimeout(() => {
-      lightbox.classList.remove('active');
-      lightboxOpen = false;
-    }, 200);
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
-    lightboxImg.src = images[currentIndex].src;
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    lightboxImg.src = images[currentIndex].src;
-  }
-
-  images.forEach((img, index) => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', () => openLightbox(index));
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  nextBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showNext();
-  });
-
-  prevBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showPrev();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (!lightboxOpen) return;
-
-    if (['ArrowLeft', 'ArrowRight', 'Escape'].includes(e.key)) {
-      e.preventDefault();
-    }
-
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-</script>
 <body>
 
   <!-- HERO -->
@@ -267,9 +198,79 @@
   <footer>
     <p>© Michael Janes — Senior / Lead Level Designer</p>
   </footer>
+<script>
+  const images = Array.from(document.querySelectorAll('.image-grid img'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const nextBtn = document.querySelector('.lightbox-arrow.right');
+  const prevBtn = document.querySelector('.lightbox-arrow.left');
 
+  let currentIndex = 0;
+  let lightboxOpen = false;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.classList.add('active');
+    lightboxOpen = true;
+
+    requestAnimationFrame(() => {
+      lightboxImg.classList.add('visible');
+    });
+  }
+
+  function closeLightbox() {
+    lightboxImg.classList.remove('visible');
+    setTimeout(() => {
+      lightbox.classList.remove('active');
+      lightboxOpen = false;
+    }, 200);
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  images.forEach((img, index) => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => openLightbox(index));
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showNext();
+  });
+
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPrev();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightboxOpen) return;
+
+    if (['ArrowLeft', 'ArrowRight', 'Escape'].includes(e.key)) {
+      e.preventDefault();
+    }
+
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+</script>
 </body>
 </html>
+
 
 
 
