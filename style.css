@@ -42,10 +42,26 @@ h2 { border-bottom: 2px solid #eee; padding-bottom: .5rem; }
   margin: 1rem auto;
 }
 
+.image-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.image-grid img {
+  width: 48%;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
 .skills { list-style: none; padding: 0; }
 .skills li { display: inline-block; background: #eee; margin: .5rem; padding: .5rem 1rem; border-radius: 20px; }
 
 footer { text-align: center; font-size: .85rem; padding: 1rem; color: #666; }
+
 
 
 
