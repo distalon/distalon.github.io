@@ -5,10 +5,7 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  line-height: 1.6;
-}
+body 
 
 a {
   color: #4ea1ff;
@@ -22,10 +19,6 @@ a:hover {
 /* =========================
    LAYOUT
 ========================= */
-.container {
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-}
 
 header {
   margin-bottom: 3rem;
@@ -191,4 +184,5 @@ body.no-scroll {
     font-size: 0.9rem;
   }
 }
+
 
