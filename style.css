@@ -144,32 +144,20 @@ h2 { border-bottom: 2px solid #eee; padding-bottom: .5rem; }
 }
 
 figure {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
 }
 
 #lightbox-caption {
-  margin-top: 0.75rem;
-  max-width: 90%;
-  color: #eee;
-  font-size: 1rem;
-  text-align: center;
-  line-height: 1.5;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  opacity: 1;              /* 👈 always visible */
-  transition: opacity 0.2s ease;
+  position: absolute;
+  bottom: 1rem;
 }
+
 
 
 #lightbox-caption.visible {
   opacity: 1;
 }
+
 
 /*.lightbox-arrow:hover {
   background: rgba(0, 0, 0, 0.85);
@@ -201,6 +189,7 @@ body.no-scroll {
 .skills li { display: inline-block; background: #eee; margin: .5rem; padding: .5rem 1rem; border-radius: 20px; }
 
 footer { text-align: center; font-size: .85rem; padding: 1rem; color: #666; }
+
 
 
 
