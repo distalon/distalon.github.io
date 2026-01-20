@@ -157,26 +157,12 @@
     <section id="projects">
       <h2>Selected Work</h2>
 
-           <!-- ANCHOR POINT -->
+       <!-- ANCHOR POINT -->
       <article class="project">
         <h3>Unannounced PCG Shooter RPG</h3>
         <p class="project-meta">Anchor Point Games — Lead Level Designer</p>
-
-        <img src="images/anchorpoint/pcg_01.jpg" alt="Procedural level design example">
-
-        <p>
-          Led level design on an unannounced procedurally generated shooter RPG built in Unreal Engine 5.
-        </p>
-
-        <ul>
-          <li>Led and mentored a team of four level designers</li>
-          <li>Redesigned PCG tools and pipelines for rapid iteration</li>
-          <li>Designed procedural world structures for evergreen content</li>
-        </ul>
-
-        <p class="tools">
-          <strong>Tools:</strong> Unreal Engine 5, PCG Systems, Dungeon Architect, Jira
-        </p>
+        <img src="images/anchorpoint/pcg_01.jpg" alt="Procedural level design example" data-caption="Procedural level design example for an unannounced PCG shooter RPG.">
+        <p>Led level design on an unannounced procedurally generated shooter RPG built in Unreal Engine 5.</p>
       </article>
 
       
@@ -203,22 +189,7 @@
         <img src="images/warframe/Warframe_17.jpg" alt="Warframe Update">
         <img src="images/warframe/Warframe_18.jpg" alt="Warframe Update">
       </div>
-
-        <p>
-          Designed and shipped a large volume of levels, worlds, and quests for
-          <em>Warframe</em>, contributing to its long-term success as a live-service title.
-        </p>
-
-        <ul>
-          <li>Designed levels and mission content across multiple updates and expansions</li>
-          <li>Built procedural level assembly systems with engineers</li>
-          <li>Spearheaded the Railjack space combat and exploration system</li>
-          <li>Led and mentored teams of 10+ designers as Acting Lead</li>
-        </ul>
-
-        <p class="tools">
-          <strong>Tools:</strong> Proprietary DE Engine, Unreal Engine, Lua, Kismet
-        </p>
+        <p>Designed and shipped a large volume of levels, worlds, and quests for <em>Warframe</em>.</p>
       </article>
 
 
@@ -226,11 +197,9 @@
       <article class="project">
         <h3>Halo 4 – Spartan Ops & Crimson Map Pack</h3>
         <p class="project-meta">Digital Extremes / 343 Industries — Senior Level Designer</p>
-
         <img src="images/halo/halo_01.jpg" alt="Halo 4 multiplayer level">
         <img src="images/halo/halo_02.png" alt="Halo 4 multiplayer level">
         <img src="images/halo/halo_03.jpg" alt="Halo 4 multiplayer level">
-
         <p>
           Designed mission and multiplayer spaces for Halo 4 in collaboration with 343 Industries.
         </p>
@@ -271,10 +240,7 @@
     <!-- ABOUT -->
     <section id="about">
       <h2>About Me</h2>
-      <p>
-        Senior level designer with over 23 years of experience across shooters, RPGs, stealth,
-        and live-service games.
-      </p>
+      <p>Senior level designer with over 23 years of experience across shooters, RPGs, stealth, and live-service games.</p>
     </section>
 
     <!-- SKILLS -->
@@ -295,7 +261,7 @@
       <p>
         📧 <a href="mailto:distalon@hotmail.com">distalon@hotmail.com</a><br>
         📞 (519) 520-9418<br>
-        🔗 <a href="#" target="_blank">LinkedIn</a>
+        🔗 <a href="https://www.linkedin.com/in/michael-d-j-055027b" target="_blank">LinkedIn</a>
       </p>
     </section>
 
@@ -304,154 +270,90 @@
   <footer>
     <p>© Michael Janes — Senior / Lead Level Designer</p>
   </footer>
-  
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-arrow left" aria-label="Previous image">‹</button>
+      <img id="lightbox-img" src="" alt="Expanded project image">
+      <button class="lightbox-arrow right" aria-label="Next image">›</button>
+      <div id="lightbox-caption"></div>
+    </div>
+  </div>
+
   <script>
-  /* =========================
-     ELEMENTS
-  ========================= */
-  const images = Array.from(document.querySelectorAll('.image-grid img'));
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const captionEl = document.getElementById('lightbox-caption');
-  const nextBtn = document.querySelector('.lightbox-arrow.right');
-  const prevBtn = document.querySelector('.lightbox-arrow.left');
+    const images = Array.from(document.querySelectorAll('.image-grid img'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const captionEl = document.getElementById('lightbox-caption');
+    const nextBtn = document.querySelector('.lightbox-arrow.right');
+    const prevBtn = document.querySelector('.lightbox-arrow.left');
 
-  /* =========================
-     STATE
-  ========================= */
-  let currentIndex = 0;
-  let lightboxOpen = false;
-  let scrollY = 0;
+    let currentIndex = 0;
+    let lightboxOpen = false;
+    let scrollY = 0;
 
-  /* =========================
-     OPEN / CLOSE
-  ========================= */
-  function openLightbox(index) {
-    currentIndex = index;
-    const img = images[currentIndex];
+    function openLightbox(index){
+      currentIndex = index;
+      const img = images[currentIndex];
+      lightboxImg.src = img.src;
+      captionEl.textContent = img.dataset.caption || '';
+      scrollY = window.scrollY;
+      document.body.classList.add('no-scroll');
+      document.body.style.top = `-${scrollY}px`;
+      lightbox.classList.add('active');
+      lightboxOpen = true;
+      requestAnimationFrame(()=>{ lightboxImg.classList.add('visible'); });
+    }
 
-    lightboxImg.src = img.src;
-    captionEl.textContent = img.dataset.caption || '';
+    function closeLightbox(){
+      lightboxImg.classList.remove('visible');
+      setTimeout(()=>{
+        lightbox.classList.remove('active');
+        lightboxOpen=false;
+        document.body.classList.remove('no-scroll');
+        document.body.style.top='';
+        window.scrollTo(0,scrollY);
+      },200);
+    }
 
-    scrollY = window.scrollY;
-    document.body.classList.add('no-scroll');
-    document.body.style.top = `-${scrollY}px`;
+    function updateImage(){
+      const img = images[currentIndex];
+      lightboxImg.src = img.src;
+      captionEl.textContent = img.dataset.caption || '';
+    }
 
-    lightbox.classList.add('active');
-    lightboxOpen = true;
+    function showNext(){ currentIndex=(currentIndex+1)%images.length; updateImage(); }
+    function showPrev(){ currentIndex=(currentIndex-1+images.length)%images.length; updateImage(); }
 
-    requestAnimationFrame(() => {
-      lightboxImg.classList.add('visible');
+    images.forEach((img,index)=>{
+      img.style.cursor='pointer';
+      img.addEventListener('click',()=>openLightbox(index));
     });
-  }
 
-  function closeLightbox() {
-    lightboxImg.classList.remove('visible');
+    lightbox.addEventListener('click', e => {
+      if(e.target.id==='lightbox') closeLightbox();
+    });
 
-    setTimeout(() => {
-      lightbox.classList.remove('active');
-      lightboxOpen = false;
+    nextBtn.addEventListener('click', e=>{ e.stopPropagation(); showNext(); });
+    prevBtn.addEventListener('click', e=>{ e.stopPropagation(); showPrev(); });
 
-      document.body.classList.remove('no-scroll');
-      document.body.style.top = '';
-      window.scrollTo(0, scrollY);
-    }, 200);
-  }
+    document.addEventListener('keydown', e=>{
+      if(!lightboxOpen) return;
+      if(['ArrowLeft','ArrowRight','Escape'].includes(e.key)) e.preventDefault();
+      if(e.key==='Escape') closeLightbox();
+      if(e.key==='ArrowRight') showNext();
+      if(e.key==='ArrowLeft') showPrev();
+    });
 
-  /* =========================
-     IMAGE UPDATE
-  ========================= */
-  function updateImage() {
-    const img = images[currentIndex];
-    lightboxImg.src = img.src;
-    captionEl.textContent = img.dataset.caption || '';
-  }
+    // Swipe gestures
+    let touchStartX=0, touchEndX=0;
+    const SWIPE_THRESHOLD=50;
+    lightbox.addEventListener('touchstart', e=>{ if(!lightboxOpen) return; touchStartX=e.changedTouches[0].screenX; }, {passive:true});
+    lightbox.addEventListener('touchend', e=>{ if(!lightboxOpen) return; touchEndX=e.changedTouches[0].screenX; handleSwipe(); }, {passive:true});
+    function handleSwipe(){ const deltaX=touchEndX-touchStartX; if(Math.abs(deltaX)<SWIPE_THRESHOLD) return; if(deltaX<0) showNext(); else showPrev(); }
+  </script>
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateImage();
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateImage();
-  }
-
-  /* =========================
-     IMAGE CLICK
-  ========================= */
-  images.forEach((img, index) => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', () => openLightbox(index));
-  });
-
-  /* =========================
-     OVERLAY CLICK
-  ========================= */
-  lightbox.addEventListener('click', (e) => {
-    if (e.target.id === 'lightbox') closeLightbox();
-  });
-
-  /* =========================
-     ARROWS
-  ========================= */
-  nextBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showNext();
-  });
-
-  prevBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showPrev();
-  });
-
-  /* =========================
-     KEYBOARD
-  ========================= */
-  document.addEventListener('keydown', (e) => {
-    if (!lightboxOpen) return;
-
-    if (['ArrowLeft', 'ArrowRight', 'Escape'].includes(e.key)) {
-      e.preventDefault();
-    }
-
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-
-  /* =========================
-     SWIPE (MOBILE)
-  ========================= */
-  let touchStartX = 0;
-  let touchEndX = 0;
-  const SWIPE_THRESHOLD = 50;
-
-  lightbox.addEventListener('touchstart', (e) => {
-    if (!lightboxOpen) return;
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  lightbox.addEventListener('touchend', (e) => {
-    if (!lightboxOpen) return;
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, { passive: true });
-
-  function handleSwipe() {
-    const deltaX = touchEndX - touchStartX;
-    if (Math.abs(deltaX) < SWIPE_THRESHOLD) return;
-
-    if (deltaX < 0) {
-      showNext();
-    } else {
-      showPrev();
-    }
-  }
-</script>
-
-
-  
 </body>
 </html>
 
