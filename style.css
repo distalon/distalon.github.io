@@ -21,7 +21,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
-  background: #f6f5f1; /* warm off-white */
+  background: #f4f3ee; /* warm off-white */
   color: #1e1e1e;
 }
 
@@ -284,6 +284,7 @@ section h2 {
 .project .image-grid {
   margin-bottom: 4rem;
 }
+
 
 
 
