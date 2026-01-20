@@ -255,15 +255,19 @@ main section:not(:last-child)::after {
 #lightbox-img {
   max-width: 100%;
   max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   margin: auto;
   opacity: 0;
-  transform: scale(0.97);
+  transform: scale(0.97); /* initial subtle scale */
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
+
+/* zoom-in applied dynamically */
+#lightbox-img.zoomed {
+  transform: scale(1.03);
+}
+
 
 #lightbox-img.visible {
   opacity: 1;
@@ -287,6 +291,7 @@ main section:not(:last-child)::after {
     max-height: 80vh;
   }
 }
+
 
 
 
