@@ -185,6 +185,47 @@ main section:not(:last-child)::after {
   );
 }
 
+/* =========================
+   PROJECT FRAMING
+========================= */
+
+.project {
+  margin: 5rem 0;
+}
+
+.project h3 {
+  font-size: 1.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.project-meta {
+  font-size: 0.95rem;
+  color: #9aa4b2;
+  margin-bottom: 1.5rem;
+}
+
+.project p {
+  max-width: 760px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.project ul {
+  max-width: 760px;
+  margin: 1.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.project ul li {
+  margin-bottom: 0.6rem;
+}
+
+.tools {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #b5bcc7;
+}
+
 
 
 
