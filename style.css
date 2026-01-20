@@ -235,6 +235,7 @@ nav.menu a {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
+
 #lightbox-img.visible {
   opacity: 1;
   transform: scale(1);
@@ -437,6 +438,7 @@ section h2 {
   display: inline-block; /* make the list not span full width */
   text-align: left;      /* keep bullets aligned left */
 }
+
 
 
 
