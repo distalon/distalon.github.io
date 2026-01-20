@@ -250,9 +250,7 @@ main section:not(:last-child)::after {
   background: radial-gradient(
     ellipse at center,
     #111 0%,
-    #000 70%
-  padding: 2rem;
-  box-sizing: border-box;
+    #000 70%;
 }
 
 #lightbox-img {
@@ -290,6 +288,7 @@ main section:not(:last-child)::after {
     max-height: 80vh;
   }
 }
+
 
 
 
