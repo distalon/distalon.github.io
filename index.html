@@ -210,6 +210,7 @@
     const images = Array.from(document.querySelectorAll('.image-grid img'));
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const captionEl = document.getElementById('lightbox-caption');
     const nextBtn = document.querySelector('.lightbox-arrow.right');
     const prevBtn = document.querySelector('.lightbox-arrow.left');
     const captionEl = document.getElementById('lightbox-caption');
@@ -231,14 +232,12 @@
   
     requestAnimationFrame(() => {
       lightboxImg.classList.add('visible');
-      captionEl.classList.add('visible');
     });
   }
 
   
     function closeLightbox() {
       lightboxImg.classList.remove('visible');
-      captionEl.classList.remove('visible');
 
       setTimeout(() => {
         lightbox.classList.remove('active');
@@ -298,6 +297,7 @@
   
 </body>
 </html>
+
 
 
 
