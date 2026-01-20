@@ -212,27 +212,29 @@
     const lightboxImg = document.getElementById('lightbox-img');
     const nextBtn = document.querySelector('.lightbox-arrow.right');
     const prevBtn = document.querySelector('.lightbox-arrow.left');
+    const captionEl = document.getElementById('lightbox-caption');
+
   
     let currentIndex = 0;
     let lightboxOpen = false;
     let scrollY = 0;
   
-    function openLightbox(index) {
-      currentIndex = index;
-      lightboxImg.src = images[currentIndex].src;
+     function openLightbox(index) {
+    currentIndex = index;
+    const img = images[currentIndex];
   
-      scrollY = window.scrollY;
+    lightboxImg.src = img.src;
+    captionEl.textContent = img.dataset.caption || '';
   
-      document.body.classList.add('no-scroll');
-      document.body.style.top = `-${scrollY}px`;
+    lightbox.classList.add('active');
+    lightboxOpen = true;
   
-      lightbox.classList.add('active');
-      lightboxOpen = true;
-  
-      requestAnimationFrame(() => {
-        lightboxImg.classList.add('visible');
-      });
-    }
+    requestAnimationFrame(() => {
+      lightboxImg.classList.add('visible');
+      captionEl.classList.add('visible');
+    });
+  }
+
   
     function closeLightbox() {
       lightboxImg.classList.remove('visible');
@@ -292,6 +294,7 @@
   
 </body>
 </html>
+
 
 
 
