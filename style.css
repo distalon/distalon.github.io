@@ -123,9 +123,18 @@ figure {
 
 #lightbox-caption {
   position: absolute;
-  bottom: calc(100% + 0.75rem);
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  background: rgba(0,0,0,0.65);
+  color: #f0f0f0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border-radius: 4px;
+  text-align: center;
 }
-
 
 /* =========================
    ARROWS
@@ -186,4 +195,3 @@ body.no-scroll {
     font-size: 0.9rem;
   }
 }
-
