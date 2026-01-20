@@ -213,19 +213,17 @@
 
   // subtle zoom if image is smaller than container
   setTimeout(() => {
-    const imgRatio = img.naturalWidth / img.naturalHeight;
     const container = lightboxImg.parentElement;
-    const containerRatio = container.clientWidth / container.clientHeight;
-
-    // check if image is smaller than container in either dimension
+    
     if (
       img.naturalWidth < container.clientWidth ||
       img.naturalHeight < container.clientHeight
     ) {
       lightboxImg.classList.add('zoomed');
     }
-  }, 50); // delay to allow image to load
+  }, 50); // small delay to ensure image is loaded
 }
+
 
 
     function showNext(){ currentIndex=(currentIndex+1)%images.length; updateImage(); }
@@ -261,6 +259,7 @@
 
 </body>
 </html>
+
 
 
 
