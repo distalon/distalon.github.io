@@ -1,3 +1,15 @@
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+
+
 /* =========================
    BASE / RESET
 ========================= */
@@ -26,6 +38,24 @@ a:hover {
 /* =========================
    LAYOUT
 ========================= */
+header.hero {
+  background: linear-gradient(180deg, #111, #1a1a1a);
+  color: #f5f5f5;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+header.hero h1 {
+  font-size: 2.75rem;
+  letter-spacing: -0.02em;
+}
+
+header.hero p {
+  max-width: 800px;
+  margin: 0.75rem auto;
+  color: #ccc;
+}
+
 header.hero {
   margin-bottom: 3rem;
 }
@@ -101,3 +131,4 @@ nav.menu a {
   display: flex;
   align-items: center;
   justify-content
+
