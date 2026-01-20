@@ -61,13 +61,14 @@ h2 {
 
 
 a {
-  color: #4ea1ff;
+  color: #2f6fdd;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
+
 
 .project::after {
   content: "";
@@ -283,6 +284,7 @@ section h2 {
 .project .image-grid {
   margin-bottom: 4rem;
 }
+
 
 
 
