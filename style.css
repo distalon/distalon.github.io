@@ -63,6 +63,16 @@ a:hover {
   text-decoration: underline;
 }
 
+.project::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 4rem auto 0;
+  background: rgba(255,255,255,0.15);
+}
+
+
 /* =========================
    LAYOUT
 ========================= */
@@ -256,14 +266,6 @@ section h2 {
 }
 
 
-.project::after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 1px;
-  margin: 4rem auto 0;
-  background: rgba(255,255,255,0.15);
-}
 
 
 
