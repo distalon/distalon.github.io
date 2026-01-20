@@ -254,7 +254,7 @@ main section:not(:last-child)::after {
   max-height: 100%;
   width: auto;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   margin: auto;
   opacity: 0;
@@ -284,3 +284,4 @@ main section:not(:last-child)::after {
     max-height: 80vh;
   }
 }
+
