@@ -203,11 +203,30 @@
       },200);
     }
 
-    function updateImage(){
-      const img = images[currentIndex];
-      lightboxImg.src = img.src;
-      captionEl.textContent = img.dataset.caption || '';
+    function updateImage() {
+  const img = images[currentIndex];
+  lightboxImg.src = img.src;
+  captionEl.textContent = img.dataset.caption || '';
+
+  // reset zoom
+  lightboxImg.classList.remove('zoomed');
+
+  // subtle zoom if image is smaller than container
+  setTimeout(() => {
+    const imgRatio = img.naturalWidth / img.naturalHeight;
+    const container = lightboxImg.parentElement;
+    const containerRatio = container.clientWidth / container.clientHeight;
+
+    // check if image is smaller than container in either dimension
+    if (
+      img.naturalWidth < container.clientWidth ||
+      img.naturalHeight < container.clientHeight
+    ) {
+      lightboxImg.classList.add('zoomed');
     }
+  }, 50); // delay to allow image to load
+}
+
 
     function showNext(){ currentIndex=(currentIndex+1)%images.length; updateImage(); }
     function showPrev(){ currentIndex=(currentIndex-1+images.length)%images.length; updateImage(); }
@@ -242,6 +261,7 @@
 
 </body>
 </html>
+
 
 
 
