@@ -440,6 +440,13 @@ section h2 {
 }
 
 
+@media (max-width: 768px) {
+  .lightbox-content {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+}
+
 
 
 
