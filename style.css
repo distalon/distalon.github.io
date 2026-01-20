@@ -5,7 +5,9 @@
   box-sizing: border-box;
 }
 
-body 
+body {
+  font-family: system-ui, sans-serif;
+}
 
 a {
   color: #4ea1ff;
@@ -15,6 +17,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
 
 /* =========================
    LAYOUT
@@ -156,6 +159,7 @@ body.no-scroll {
     right: 0.5rem;
   }
 }
+
 
 
 
