@@ -76,11 +76,11 @@ p {
 }
 
 nav.menu {
-  margin-bottom: 3rem;
+  text-align: center;
 }
 
 nav.menu a {
-  margin-right: 1.5rem;
+  display: inline-block;
 }
 
 /* =========================
@@ -144,6 +144,7 @@ nav.menu a {
   display: flex;
   align-items: center;
   justify-content
+
 
 
 
