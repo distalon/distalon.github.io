@@ -1,4 +1,34 @@
+/* =========================
+   RESET / BASE
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+  background: #f6f5f1;
+  color: #1e1e1e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #2f6fdd;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   PAGE CONTAINER
+========================= */
 main {
   max-width: 1100px;
   margin: 0 auto;
@@ -10,22 +40,7 @@ section {
 }
 
 /* =========================
-   PAGE FRAME (TED STYLE)
-========================= */
-
-/* =========================
-   PAGE BASE
-========================= */
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #f6f5f1; /* warm off-white */
-  color: #1e1e1e;
-}
-
-/* =========================
-   STICKY HEADER / TED STYLE
+   STICKY HEADER (TED STYLE)
 ========================= */
 .site-header {
   position: sticky;
@@ -50,7 +65,6 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  margin: 0;
 }
 
 .header-nav a {
@@ -58,104 +72,125 @@ body {
   font-size: 0.95rem;
   font-weight: 500;
   color: #1e1e1e;
-  text-decoration: none;
-  transition: color 0.2s ease;
 }
-
-.header-nav a:hover {
-  color: #2f6fdd;
-}
-
-
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
 
 /* =========================
-   BASE / RESET
-========================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Inter, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-.project h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.25rem;
-}
-
-
-a {
-  color: #2f6fdd;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-
-.project::after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 1px;
-  margin: 4rem auto 0;
-  background: rgba(255,255,255,0.15);
-}
-
-
-/* =========================
-   LAYOUT
+   HERO / BLACK BAR
 ========================= */
 header.hero {
   background: linear-gradient(180deg, #111, #1a1a1a);
   color: #f5f5f5;
-  padding: 3rem 0;
-}
-
-header.hero > * {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 4rem 1.5rem 5rem;
   text-align: center;
-}
-
-header.hero {
   margin-bottom: 3rem;
 }
 
-h1, h2, h3 {
-  margin-top: 0;
-  font-weight: 600;
+header.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
 }
 
-p {
+header.hero .subtitle {
+  font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
-nav.menu {
+header.hero .tagline {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+header.hero .contact a {
+  color: #4ea1ff;
+  font-weight: 500;
+  margin: 0 0.5rem;
+}
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-nav.menu a {
+/* =========================
+   PROJECT FRAMING (TED STYLE)
+========================= */
+.project {
+  margin: 6rem 0;
+  text-align: center;
+}
+
+.project h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.project-meta {
+  font-size: 0.95rem;
+  color: #7a7a7a;
+  margin-bottom: 1.5rem;
+}
+
+.project p {
+  max-width: 760px;
+  margin: 0 auto 1rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.project ul {
+  max-width: 760px;
+  margin: 1.5rem auto;
+  padding-left: 1.2rem;
   display: inline-block;
+  text-align: left;
+}
+
+.project ul li {
+  margin-bottom: 0.6rem;
+}
+
+.tools {
+  font-size: 0.9rem;
+  color: #6f7680;
+}
+
+/* =========================
+   SECTION DIVIDERS
+========================= */
+main section:not(:last-child)::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 1px;
+  margin: 3rem auto 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0,0,0,0.08),
+    transparent
+  );
+}
+
+/* =========================
+   PROJECT IMAGES
+========================= */
+.project img {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  border-radius: 4px;
 }
 
 /* =========================
@@ -165,11 +200,11 @@ nav.menu a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1rem;
+  margin: 2rem 0 4rem;
 }
 
 .image-grid img {
   width: 100%;
-  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   cursor: pointer;
@@ -179,24 +214,16 @@ nav.menu a {
 
 .image-grid img:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
-
-.page-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem 4rem;
-}
-
 
 /* =========================
-   LIGHTBOX (FIXED CENTERING + SCALE)
+   LIGHTBOX (FINAL, FIXED)
 ========================= */
-
 #lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0,0,0,0.88);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -235,254 +262,25 @@ nav.menu a {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-
 #lightbox-img.visible {
   opacity: 1;
   transform: scale(1);
 }
 
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
+  header.hero h1 {
+    font-size: 2.4rem;
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+
   .lightbox-content {
     max-width: 95vw;
     max-height: 80vh;
   }
 }
-
-/* =========================
-   LIGHTBOX IMAGE – HARD LOCK
-========================= */
-
-#lightbox-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
-/* =========================
-   SECTION DIVIDERS
-========================= */
-
-main section {
-  position: relative;
-  padding: 4rem 0;
-}
-
-main section:not(:last-child)::after {
-  content: "";
-  display: block;
-  width: 60%;
-  height: 1px;
-  margin: 3rem auto 0;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255,255,255,0.15),
-    transparent
-  );
-}
-
-/* =========================
-   PROJECT FRAMING
-========================= */
-
-.project {
-  margin: 5rem 0;
-}
-
-.project h3 {
-  font-size: 1.9rem;
-  margin-bottom: 0.25rem;
-}
-
-.project-meta {
-  font-size: 0.95rem;
-  color: #9aa4b2;
-  margin-bottom: 1.5rem;
-}
-
-.project p {
-  max-width: 760px;
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-.project ul {
-  max-width: 760px;
-  margin: 1.5rem 0;
-  padding-left: 1.2rem;
-}
-
-.project ul li {
-  margin-bottom: 0.6rem;
-}
-
-.tools {
-  margin-top: 1.2rem;
-  font-size: 0.9rem;
-  color: #b5bcc7;
-}
-
-
-/* =========================
-   PROJECT IMAGES
-========================= */
-
-.project img {
-  display: block;
-  width: 100%;
-  max-width: 1000px;
-  margin: 2rem auto;
-  border-radius: 4px;
-}
-
-#lightbox img {
-  width: auto;
-  max-width: 100%;
-  margin: 0;
-}
-
-
-.image-grid {
-  margin: 2rem 0 3rem;
-}
-
-.image-grid img {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-
-section h2 {
-  font-size: 2.3rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-
-/* =========================
-   PROJECT SPACING
-========================= */
-
-.project {
-  margin: 6rem 0;
-}
-
-.project .image-grid {
-  margin-bottom: 4rem;
-}
-
-
-
-/* =========================
-   HERO / BLACK BAR REFINEMENT
-========================= */
-header.hero {
-  background: linear-gradient(180deg, #111, #1a1a1a); /* black bar */
-  color: #f5f5f5;
-  padding: 4rem 1.5rem 5rem;
-  text-align: center;
-}
-
-header.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-}
-
-header.hero .subtitle {
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  margin-bottom: 1rem;
-}
-
-header.hero .tagline {
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 1.5rem;
-  color: #ccc;
-}
-
-header.hero .contact a {
-  color: #4ea1ff;
-  font-weight: 500;
-  margin-right: 1rem;
-}
-
-header.hero .contact a:hover {
-  text-decoration: underline;
-}
-
-/* =========================
-   SECTION HEADINGS (TED STYLE)
-========================= */
-section h2 {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-weight: 700;
-  font-size: 2.5rem;
-  letter-spacing: 0.5px;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #1e1e1e;
-}
-
-.project h3 {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  letter-spacing: 0.25px;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.project-meta {
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: #7a7a7a;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.project p, .project ul, .tools {
-  text-align: center; /* center-align all content like Ted’s site */
-}
-
-.project ul {
-  display: inline-block; /* make the list not span full width */
-  text-align: left;      /* keep bullets aligned left */
-}
-
-
-@media (max-width: 768px) {
-  .lightbox-content {
-    max-width: 95vw;
-    max-height: 80vh;
-  }
-}
-
-#lightbox img {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  object-fit: contain !important;
-  margin: auto !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
