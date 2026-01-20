@@ -238,27 +238,31 @@
   
     function closeLightbox() {
       lightboxImg.classList.remove('visible');
-  
+      captionEl.classList.remove('visible');
+
       setTimeout(() => {
         lightbox.classList.remove('active');
         lightboxOpen = false;
-  
-        document.body.classList.remove('no-scroll');
-        document.body.style.top = '';
-  
-        window.scrollTo(0, scrollY);
       }, 200);
     }
+
   
+    function updateImage() {
+      const img = images[currentIndex];
+      lightboxImg.src = img.src;
+      captionEl.textContent = img.dataset.caption || '';
+    }
+    
     function showNext() {
       currentIndex = (currentIndex + 1) % images.length;
-      lightboxImg.src = images[currentIndex].src;
+      updateImage();
     }
-  
+    
     function showPrev() {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
-      lightboxImg.src = images[currentIndex].src;
+      updateImage();
     }
+
   
     images.forEach((img, index) => {
       img.style.cursor = 'pointer';
@@ -294,6 +298,7 @@
   
 </body>
 </html>
+
 
 
 
