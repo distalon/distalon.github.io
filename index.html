@@ -3,38 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michael Janes | Senior Level Designer</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Michael Janes – Senior Level Designer</title>
+  <link rel="icon" href="favicon.ico">
+
+  <style>
+    /* =========================
+       PAGE BASE
+    ========================= */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: #f6f5f1;
+      color: #1e1e1e;
+    }
+    a { color: #2f6fdd; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    main { max-width: 1100px; margin:0 auto; padding:0 1.5rem 4rem; }
+    section { margin-bottom:4rem; padding:4rem 0; position:relative; }
+
+    section:not(:last-child)::after {
+      content:"";
+      display:block;
+      width:60%;
+      height:1px;
+      margin:3rem auto 0;
+      background: linear-gradient(to right, transparent, rgba(0,0,0,0.15), transparent);
+    }
+
+    h2 { font-size:2.5rem; font-weight:700; text-align:center; margin-bottom:2rem; letter-spacing:0.5px; color:#1e1e1e; }
+    h3 { font-size:2rem; font-weight:700; text-align:center; margin-bottom:0.5rem; letter-spacing:0.25px; }
+    .project-meta { font-size:0.95rem; color:#7a7a7a; text-align:center; margin-bottom:1.5rem; }
+    .project p, .tools { text-align:center; font-size:1.05rem; line-height:1.7; }
+    .project ul { display:inline-block; text-align:left; margin:1.5rem 0; padding-left:1.2rem; }
+    .project ul li { margin-bottom:0.6rem; }
+    .tools { margin-top:1.2rem; font-size:0.9rem; color:#b5bcc7; }
+
+    .project { margin:6rem 0; }
+    .project img { display:block; width:100%; max-width:1000px; margin:2rem auto; border-radius:4px; }
+
+    /* =========================
+       HEADER / HERO
+    ========================= */
+    header.hero {
+      background: linear-gradient(180deg, #111, #1a1a1a);
+      color:#f5f5f5;
+      text-align:center;
+      padding:4rem 1.5rem 5rem;
+      margin-bottom:3rem;
+    }
+    header.hero h1 { font-size:3rem; font-weight:800; letter-spacing:1px; margin-bottom:0.5rem; }
+    header.hero .subtitle { font-size:1.25rem; font-weight:500; margin-bottom:1rem; letter-spacing:0.5px; }
+    header.hero .tagline { font-size:1.1rem; font-weight:400; line-height:1.6; max-width:800px; margin:0 auto 1.5rem; color:#ccc; }
+    header.hero .contact a { color:#4ea1ff; font-weight:500; margin-right:1rem; }
+    header.hero .contact a:hover { text-decoration:underline; }
+
+    nav.menu { text-align:center; margin-bottom:2rem; }
+    nav.menu a { display:inline-block; margin:0 1rem; font-weight:500; }
+
+    /* =========================
+       IMAGE GRID
+    ========================= */
+    .image-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:1rem; margin:2rem 0 3rem; }
+    .image-grid img { width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; cursor:pointer; border-radius:6px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .image-grid img:hover { transform:scale(1.02); box-shadow:0 8px 20px rgba(0,0,0,0.5); }
+
+    /* =========================
+       LIGHTBOX
+    ========================= */
+    #lightbox {
+      position:fixed; inset:0;
+      background:rgba(0,0,0,0.88);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; pointer-events:none; transition:opacity 0.25s ease; z-index:9999;
+    }
+    #lightbox.active { opacity:1; pointer-events:auto; }
+
+    .lightbox-content {
+      position:relative;
+      width:100%; max-width:90vw;
+      max-height:80vh;
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    #lightbox-img {
+      max-width:100%; max-height:100%;
+      object-fit:contain;
+      display:block; margin:auto;
+      opacity:0; transform:scale(0.97);
+      transition:opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    #lightbox-img.visible { opacity:1; transform:scale(1); }
+    #lightbox-img.zoomed { transform:scale(1.03); }
+
+    #lightbox-caption {
+      position:absolute; bottom:1.5rem;
+      left:50%; transform:translateX(-50%);
+      max-width:90%; background:rgba(0,0,0,0.65);
+      color:#f0f0f0; padding:0.5rem 0.75rem;
+      font-size:0.95rem; line-height:1.4;
+      border-radius:4px; text-align:center; pointer-events:none;
+    }
+
+    .lightbox-arrow {
+      position:absolute; top:50%; transform:translateY(-50%);
+      background:rgba(0,0,0,0.7); border:none; color:#fff;
+      font-size:2.5rem; padding:0.4rem 0.7rem; cursor:pointer; border-radius:4px;
+    }
+    .lightbox-arrow.left { left:1rem; }
+    .lightbox-arrow.right { right:1rem; }
+
+    body.no-scroll { position:fixed; width:100%; }
+
+    @media(max-width:768px){
+      .lightbox-content { max-width:95vw; max-height:80vh; }
+      .lightbox-arrow.left { left:0.5rem; }
+      .lightbox-arrow.right { right:0.5rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- STICKY HEADER / TED STYLE -->
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="brand">Michael Janes</h1>
-      <nav class="header-nav">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO / BLACK BAR -->
+  <!-- HERO -->
   <header class="hero">
     <h1>Michael Janes</h1>
     <p class="subtitle">Lead / Principal / Senior Level Designer</p>
-    <p class="tagline">
-      23+ years designing and leading world-class gameplay experiences across AAA and live-service titles.
-    </p>
+    <p class="tagline">23+ years designing and leading world-class gameplay experiences across AAA and live-service titles.</p>
     <p class="contact">
       📧 <a href="mailto:distalon@hotmail.com">distalon@hotmail.com</a> |
-      📞 <a href="tel:+15195209418">(519) 520-9418</a> |
-      🔗 <a href="https://www.linkedin.com/in/michael-d-j-055027b" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-      📄 <a href="Michael_Janes_Resume.pdf" target="_blank">Resume (PDF)</a>
+      📞 (519) 520-9418 |
+      🔗 <a href="https://www.linkedin.com/in/michael-d-j-055027b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </p>
   </header>
+
+  <!-- NAV -->
+  <nav class="menu">
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <main>
 
@@ -160,10 +271,10 @@
   <!-- LIGHTBOX -->
   <div id="lightbox">
     <div class="lightbox-content">
-      <button class="lightbox-arrow left" aria-label="Previous image">‹</button>
-      <img id="lightbox-img" src="" alt="Expanded project image">
-      <button class="lightbox-arrow right" aria-label="Next image">›</button>
-      <div id="lightbox-caption"></div>
+      <button class="lightbox-arrow left">&#10094;</button>
+      <img id="lightbox-img" src="" alt="">
+      <p id="lightbox-caption"></p>
+      <button class="lightbox-arrow right">&#10095;</button>
     </div>
   </div>
 
@@ -174,12 +285,11 @@
     const captionEl = document.getElementById('lightbox-caption');
     const nextBtn = document.querySelector('.lightbox-arrow.right');
     const prevBtn = document.querySelector('.lightbox-arrow.left');
-
     let currentIndex = 0;
     let lightboxOpen = false;
     let scrollY = 0;
 
-    function openLightbox(index){
+    function openLightbox(index) {
       currentIndex = index;
       const img = images[currentIndex];
       lightboxImg.src = img.src;
@@ -189,59 +299,38 @@
       document.body.style.top = `-${scrollY}px`;
       lightbox.classList.add('active');
       lightboxOpen = true;
-      requestAnimationFrame(()=>{ lightboxImg.classList.add('visible'); });
+      requestAnimationFrame(() => lightboxImg.classList.add('visible'));
+      updateZoom();
     }
 
-    function closeLightbox(){
+    function closeLightbox() {
       lightboxImg.classList.remove('visible');
-      setTimeout(()=>{
+      setTimeout(() => {
         lightbox.classList.remove('active');
-        lightboxOpen=false;
+        lightboxOpen = false;
         document.body.classList.remove('no-scroll');
-        document.body.style.top='';
-        window.scrollTo(0,scrollY);
-      },200);
+        document.body.style.top = '';
+        window.scrollTo(0, scrollY);
+      }, 200);
     }
 
     function updateImage() {
-  const img = images[currentIndex];
-  lightboxImg.src = img.src;
-  captionEl.textContent = img.dataset.caption || '';
-
-  // reset zoom
-  lightboxImg.classList.remove('zoomed');
-
-  // subtle zoom if image is smaller than container
-  setTimeout(() => {
-    const container = lightboxImg.parentElement;
-    
-    if (
-      img.naturalWidth < container.clientWidth ||
-      img.naturalHeight < container.clientHeight
-    ) {
-      lightboxImg.classList.add('zoomed');
+      const img = images[currentIndex];
+      lightboxImg.src = img.src;
+      captionEl.textContent = img.dataset.caption || '';
+      updateZoom();
     }
-  }, 50); // small delay to ensure image is loaded
-}
 
+    function showNext() { currentIndex = (currentIndex + 1) % images.length; updateImage(); }
+    function showPrev() { currentIndex = (currentIndex - 1 + images.length) % images.length; updateImage(); }
 
+    images.forEach((img,index) => img.addEventListener('click',()=>openLightbox(index)));
 
-    function showNext(){ currentIndex=(currentIndex+1)%images.length; updateImage(); }
-    function showPrev(){ currentIndex=(currentIndex-1+images.length)%images.length; updateImage(); }
+    lightbox.addEventListener('click', e => { if(e.target.id==='lightbox') closeLightbox(); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
 
-    images.forEach((img,index)=>{
-      img.style.cursor='pointer';
-      img.addEventListener('click',()=>openLightbox(index));
-    });
-
-    lightbox.addEventListener('click', e => {
-      if(e.target.id==='lightbox') closeLightbox();
-    });
-
-    nextBtn.addEventListener('click', e=>{ e.stopPropagation(); showNext(); });
-    prevBtn.addEventListener('click', e=>{ e.stopPropagation(); showPrev(); });
-
-    document.addEventListener('keydown', e=>{
+    document.addEventListener('keydown', e => {
       if(!lightboxOpen) return;
       if(['ArrowLeft','ArrowRight','Escape'].includes(e.key)) e.preventDefault();
       if(e.key==='Escape') closeLightbox();
@@ -249,12 +338,20 @@
       if(e.key==='ArrowLeft') showPrev();
     });
 
-    // Swipe gestures
-    let touchStartX=0, touchEndX=0;
-    const SWIPE_THRESHOLD=50;
-    lightbox.addEventListener('touchstart', e=>{ if(!lightboxOpen) return; touchStartX=e.changedTouches[0].screenX; }, {passive:true});
-    lightbox.addEventListener('touchend', e=>{ if(!lightboxOpen) return; touchEndX=e.changedTouches[0].screenX; handleSwipe(); }, {passive:true});
-    function handleSwipe(){ const deltaX=touchEndX-touchStartX; if(Math.abs(deltaX)<SWIPE_THRESHOLD) return; if(deltaX<0) showNext(); else showPrev(); }
+    let touchStartX=0,touchEndX=0,SWIPE_THRESHOLD=50;
+    lightbox.addEventListener('touchstart', e => { if(!lightboxOpen) return; touchStartX=e.changedTouches[0].screenX; }, {passive:true});
+    lightbox.addEventListener('touchend', e => { if(!lightboxOpen) return; touchEndX=e.changedTouches[0].screenX; handleSwipe(); }, {passive:true});
+    function handleSwipe(){ const deltaX=touchEndX-touchStartX; if(Math.abs(deltaX)<SWIPE_THRESHOLD) return; if(deltaX<0){showNext();}else{showPrev();} }
+
+    function updateZoom(){
+      lightboxImg.classList.remove('zoomed');
+      setTimeout(()=>{
+        const container = lightboxImg.parentElement;
+        if(lightboxImg.naturalWidth < container.clientWidth || lightboxImg.naturalHeight < container.clientHeight){
+          lightboxImg.classList.add('zoomed');
+        }
+      },50);
+    }
   </script>
 
 </body>
