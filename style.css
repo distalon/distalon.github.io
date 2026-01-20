@@ -327,6 +327,88 @@ section h2 {
 
 
 
+/* =========================
+   HERO / BLACK BAR REFINEMENT
+========================= */
+header.hero {
+  background: linear-gradient(180deg, #111, #1a1a1a); /* black bar */
+  color: #f5f5f5;
+  padding: 4rem 1.5rem 5rem;
+  text-align: center;
+}
+
+header.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+header.hero .subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+header.hero .tagline {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  color: #ccc;
+}
+
+header.hero .contact a {
+  color: #4ea1ff;
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+header.hero .contact a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   SECTION HEADINGS (TED STYLE)
+========================= */
+section h2 {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+.project h3 {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.25px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.project-meta {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #7a7a7a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.project p, .project ul, .tools {
+  text-align: center; /* center-align all content like Ted’s site */
+}
+
+.project ul {
+  display: inline-block; /* make the list not span full width */
+  text-align: left;      /* keep bullets aligned left */
+}
+
 
 
 
