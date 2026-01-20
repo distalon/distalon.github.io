@@ -112,6 +112,13 @@ nav.menu a {
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+
 /* =========================
    LIGHTBOX ONLY
 ========================= */
@@ -142,6 +149,7 @@ nav.menu a {
   display: flex;
   align-items: center;
   justify-content
+
 
 
 
