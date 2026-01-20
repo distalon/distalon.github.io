@@ -245,7 +245,7 @@ main section:not(:last-child)::after {
   max-width: 90vw;
   max-height: 80vh;
   display: flex;
-  align-items: center;
+  align-items: contain;
   justify-content: center;
   background: #000;
   padding: 2rem;
@@ -287,6 +287,7 @@ main section:not(:last-child)::after {
     max-height: 80vh;
   }
 }
+
 
 
 
