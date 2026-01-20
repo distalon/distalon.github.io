@@ -167,27 +167,6 @@ figure {
   opacity: 1;
 }
 
-
-
-/*.lightbox-arrow:hover {
-  background: rgba(0, 0, 0, 0.85);
-}
-
-/* Show arrows only when hovering the lightbox 
-#lightbox.active .lightbox-arrow {
-  opacity: 1;
-} 
-
-/* Mobile tweak 
-@media (max-width: 768px) {
-  .lightbox-arrow.left {
-    left: 0.5rem;
-  }
-  .lightbox-arrow.right {
-    right: 0.5rem;
-  }
-} */
-
 body.no-scroll {
   position: fixed;
   width: 100%;
@@ -199,6 +178,7 @@ body.no-scroll {
 .skills li { display: inline-block; background: #eee; margin: .5rem; padding: .5rem 1rem; border-radius: 20px; }
 
 footer { text-align: center; font-size: .85rem; padding: 1rem; color: #666; }
+
 
 
 
