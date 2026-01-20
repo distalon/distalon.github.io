@@ -247,7 +247,10 @@ main section:not(:last-child)::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000;
+  background: radial-gradient(
+    ellipse at center,
+    #111 0%,
+    #000 70%
   padding: 2rem;
   box-sizing: border-box;
 }
@@ -287,5 +290,6 @@ main section:not(:last-child)::after {
     max-height: 80vh;
   }
 }
+
 
 
