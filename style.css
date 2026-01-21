@@ -167,7 +167,9 @@ body.no-scroll { position:fixed; width:100%; }
   }
 
    .about-image img {
-     border-radius: 50%;
+      border-radius: 50%;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
    }
 
    .about-image img:hover {
@@ -176,6 +178,7 @@ body.no-scroll { position:fixed; width:100%; }
 }
    
    
+
 
 
 
