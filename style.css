@@ -166,15 +166,17 @@ body.no-scroll { position:fixed; width:100%; }
     transition: filter 0.3s ease;
   }
 
-  .about-image {
-    border-radius: 50%;
-   /* max-width: 220px;
-    margin: 0 auto;*/
-  }
+   .about-image img {
+     border-radius: 50%;
+   }
 
    .about-image img:hover {
      filter: grayscale(0%);
+   } 
 }
+   
+   
+
 
 
 
