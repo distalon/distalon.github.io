@@ -174,8 +174,8 @@ body.no-scroll { position:fixed; width:100%; }
 
    .about-image img:hover {
      filter: grayscale(0%);
-   }
 }
+
 
 
 
