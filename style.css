@@ -154,7 +154,7 @@ body.no-scroll { position:fixed; width:100%; }
 .about-text p {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #ccc;
+  color: #3A3B3C;
 }
 
 /* Mobile */
@@ -169,4 +169,5 @@ body.no-scroll { position:fixed; width:100%; }
     margin: 0 auto;
   }
 }
+
 
