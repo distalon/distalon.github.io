@@ -140,11 +140,18 @@ body.no-scroll { position:fixed; width:100%; }
 }
 
 .about-image img {
-  width: 100%;
+   border-radius: 50%;
+   filter: grayscale(100%);
+   transition: filter 0.3s ease;
+  /*width: 100%;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);*/
 }
+
+.about-image img:hover {
+     filter: grayscale(0%);
+   }
 
 .about-text h2 {
   font-size: 2.2rem;
@@ -178,6 +185,7 @@ body.no-scroll { position:fixed; width:100%; }
 }
    
    
+
 
 
 
