@@ -148,6 +148,11 @@ body.no-scroll { position:fixed; width:100%; }
   transition: filter 0.3s ease;
 }
 
+.about-image img:hover {
+     filter: grayscale(0%);
+   } 
+}
+
 .about-text h2 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
@@ -180,6 +185,7 @@ body.no-scroll { position:fixed; width:100%; }
 }
    
    
+
 
 
 
