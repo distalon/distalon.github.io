@@ -122,3 +122,51 @@ body.no-scroll { position:fixed; width:100%; }
   .lightbox-arrow.right { right:0.5rem; }
 }
 
+/* =========================
+   About me image
+========================= */
+
+.about {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}
+
