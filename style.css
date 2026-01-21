@@ -143,14 +143,13 @@ body.no-scroll { position:fixed; width:100%; }
    width: 100%;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15)
+  /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15)*/
   filter: grayscale(100%);
   transition: filter 0.3s ease;
 }
 
 .about-image img:hover {
      filter: grayscale(0%);
-   } 
 }
 
 .about-text h2 {
@@ -185,6 +184,7 @@ body.no-scroll { position:fixed; width:100%; }
 }
    
    
+
 
 
 
