@@ -168,14 +168,15 @@ body.no-scroll { position:fixed; width:100%; }
 
   .about-image {
     border-radius: 50%;
-    max-width: 220px;
-    margin: 0 auto;
+   /* max-width: 220px;
+    margin: 0 auto;*/
   }
 
    .about-image img:hover {
      filter: grayscale(0%);
    }
 }
+
 
 
 
