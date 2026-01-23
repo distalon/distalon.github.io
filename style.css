@@ -181,6 +181,22 @@ body.no-scroll { position:fixed; width:100%; }
 }
 
 
+/* =========================
+   Bottom Contact section
+========================= */
+
+#contact {
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+#contact p {
+  text-align: center;
+  font-weight: 500;
+}
+
+
 /* Mobile */
 @media (max-width: 768px) {
   .about-container {
@@ -202,6 +218,7 @@ body.no-scroll { position:fixed; width:100%; }
 }
    
    
+
 
 
 
